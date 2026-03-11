@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evolución del marketing</title>
+
+<style>
+
+/* ----------- BASE ----------- */
+body{
+margin:0;
+font-family:"Times New Roman", Times, serif;
+color:white;
+background:#111;
+}
+
+section{
+padding:35px 10%;
+}
+
+h1,h2,h3{
+margin:0 0 5px 0;
+}
+
+/* ----------- HEADER ----------- */
+.topbar{
+position:sticky;
+top:0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 50px;
+background:rgba(0,0,0,0.85);
+backdrop-filter:blur(6px);
+z-index:10;
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+letter-spacing:1px;
+}
+
+.menu{
+display:flex;
+gap:35px;
+font-size:18px;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-family: 'Times New Roman', Times, serif;
+transition:.3s;
+}
+
+.menu a:hover{
+opacity:.7;
+}
+
+/* ----------- SECCION MARKETING ----------- */
+.marketing{
+background:linear-gradient(120deg,#384298,#f32c6b);
+text-align:center;
+}
+
+.marketing p{
+max-width:900px;
+margin:auto;
+font-size:20px;
+line-height:1.7;
+}
+
+/* ----------- CARRUSEL MEDIOS ----------- */
+.medios{
+background:linear-gradient(120deg,#000428,#004e92);
+text-align:center;
+}
+
+.carousel{
+position:relative;
+max-width:1000px;
+height:420px;
+margin:auto;
+overflow:hidden;
+border-radius:22px;
+box-shadow:0 20px 50px rgba(0,0,0,0.65);
+}
+
+.slides{
+display:flex;
+transition:transform .7s ease;
+height:100%;
+}
+
+.slide{
+flex:0 0 33.33%;
+position:relative;
+padding:0 10px;
+box-sizing:border-box;
+transform:scale(0.8);
+opacity:0.6;
+transition:transform .5s, opacity .5s;
+}
+
+.slide img{
+width:100%;
+height:300px;
+object-fit:cover;
+display:block;
+border-radius:18px;
+}
+
+.slide.active{
+transform:scale(1.1);
+opacity:1;
+z-index:2;
+}
+
+.caption{
+position:absolute;
+bottom:15px;
+left:10px;
+right:10px;
+text-align:center;
+font-size:22px;
+background:rgba(0,0,0,0.5);
+padding:8px;
+border-radius:10px;
+}
+
+.carousel-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:40px;
+color:white;
+cursor:pointer;
+padding:10px;
+user-select:none;
+}
+
+.carousel-btn.left{left:10px}
+.carousel-btn.right{right:10px}
+
+/* ----------- TIMELINE ----------- */
+.timeline-section{
+background:#000;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+transition:background 1s ease;
+padding-top:20px;
+
+}
+
+.header{
+text-align:center;
+font-size:36px;
+margin-bottom:30px;
+opacity:0;
+}
+
+.content-area{
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
+}
+
+.image-container{
+width:400px;
+height:400px;
+margin-bottom:10px;
+margin-top: 0;
+opacity:0;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.image-container img{
+width:100%;
+height:320px;
+object-fit:cover;
+border-radius:16px;
+box-shadow:0 10px 25px rgba(0,0,0,0.6);
+}
+
+.text-container{
+max-width:850px;
+font-size:20px;
+line-height:1.7;
+background:rgba(0,0,0,0.5);
+padding:5px;
+border-radius:10px;
+backdrop-filter:blur(3px);
+opacity:0;
+}
+
+/* timeline years */
+.timeline-container{
+position:relative;
+padding:5px 0;
+display:flex;
+justify-content:center;
+align-items:center;
+background:rgba(0,0,0,0.85);
+margin-top:40px;
+}
+
+.timeline{
+display:flex;
+gap:90px;
+font-size:32px;
+align-items:center;
+}
+
+.year{
+opacity:.4;
+transition:.4s;
+}
+
+.year.active{
+font-size:65px;
+opacity:1;
+text-shadow:0 0 10px white,0 0 25px white;
+}
+
+.nav{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:40px;
+cursor:pointer;
+}
+
+.nav.left{left:30px}
+.nav.right{right:30px}
+
+/* reveal */
+.reveal-title{animation:fadeUp .6s forwards .2s}
+.reveal-img{animation:fadeUp .6s forwards .4s}
+.reveal-text{animation:fadeUp .6s forwards .6s}
+
+@keyframes fadeUp{
+from{opacity:0; transform:translateY(20px)}
+to{opacity:1; transform:translateY(0)}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="topbar">
+<div class="logo">Evolución del marketing</div>
+
+<nav class="menu">
+<a href="#marketing">Marketing</a>
+<a href="#medios">Medios</a>
+<a href="#linea">Linea</a>
+</nav>
+</div>
+
+<!-- SECCION 1 -->
+<section id="marketing" class="marketing">
+<h1>¿Que es el <strong>Marketing</strong>?</h1>
+<p>
+El marketing es el conjunto de estrategias y acciones que utilizan las empresas para entender a los consumidores,
+promocionar productos o servicios y generar valor para los clientes. A lo largo de la historia el marketing ha
+cambiado junto con la tecnología, pasando desde la publicidad en periódicos hasta el marketing digital, las redes
+sociales y la inteligencia artificial.
+</p>
+</section>
+
+<!-- SECCION 2 CARRUSEL -->
+<section id="medios" class="medios">
+<h1>Medios de difusión</h1>
+
+<div class="carousel">
+
+<div class="slides" id="slides">
+
+<div class="slide">
+<img src="images/radio.jpg">
+<div class="caption">Radio</div>
+</div>
+
+<div class="slide">
+<img src="images/tv.jpg">
+<div class="caption">Television</div>
+</div>
+
+<div class="slide">
+<img src="images/newspaper.jpg">
+<div class="caption">Periodicos</div>
+</div>
+
+<div class="slide">
+<img src="images/billboard.jpg">
+<div class="caption">Vallas publicitarias</div>
+</div>
+
+<div class="slide">
+<img src="images/internet.jpg">
+<div class="caption">Internet</div>
+</div>
+
+<div class="slide">
+<img src="images/email.jpg">
+<div class="caption">Email marketing</div>
+</div>
+
+<div class="slide">
+<img src="images/social.jpg">
+<div class="caption">Redes sociales</div>
+</div>
+
+<div class="slide">
+<img src="images/influencers.jpg">
+<div class="caption">Influencers</div>
+</div>
+
+</div>
+
+<div class="carousel-btn left" onclick="prevSlide()">❮</div>
+<div class="carousel-btn right" onclick="nextSlide()">❯</div>
+
+</div>
+</section>
+
+<!-- TIMELINE -->
+<section id="linea" class="timeline-section" style="background:linear-gradient(120deg,#434343,#000000)">
+
+<header class="header" id="header">
+<h3 style="color: #000;"  id="title"></h3>
+</header>
+
+<div class="content-area">
+
+<div class="image-container" id="imgContainer">
+<img id="mainImage" src="images/placeholder.jpg">
+</div>
+
+<div class="text-container" id="textContainer">
+<p id="text"></p>
+</div>
+
+</div>
+
+<div class="timeline-container">
+
+<div class="nav left" onclick="prevYear()">⬅</div>
+
+<div class="timeline">
+<span id="prevYear" class="year"></span>
+<span id="currentYear" class="year active"></span>
+<span id="nextYear" class="year"></span>
+</div>
+
+<div class="nav right" onclick="nextYear()">➡</div>
+
+</div>
+
+</section>
+
+<script>
+
+/* ----------- CARRUSEL ----------- */
+
+let slideIndex = 1
+let slides
+let slidesContainer
+
+window.addEventListener("DOMContentLoaded", () => {
+  slides = document.querySelectorAll(".slide")
+  slidesContainer = document.getElementById("slides")
+  updateCarousel()
+})
+
+function updateCarousel(){
+  slides.forEach(s => s.classList.remove("active"))
+
+  if(slides[slideIndex]){
+    slides[slideIndex].classList.add("active")
+  }
+
+  const offset = (slideIndex - 1) * 33.33
+  slidesContainer.style.transform = "translateX(-" + offset + "%)"
+}
+
+function nextSlide(){
+  if(slideIndex < slides.length - 1){
+    slideIndex++
+  }else{
+    slideIndex = 0
+  }
+  updateCarousel()
+}
+
+function prevSlide(){
+  if(slideIndex > 0){
+    slideIndex--
+  }else{
+    slideIndex = slides.length - 1
+  }
+  updateCarousel()
+}
+
+setInterval(nextSlide,4000)
+
+/* ----------- TIMELINE ----------- */
+
+const timeline=[
+{year:1900,title:"Marketing 1.0: De Producción",text:"Las empresas producian en masa durante la revolucion industrial, sin enfocarse en el consumidor debido a la alta demanda.",image:"images/revolucion.jpg",bg:"linear-gradient(120deg,#f6d365,#fda085)"},
+
+{year:1920,title:"Marketing 2.0: Publicidad en radio",text:"Se empiezan a anunciar por la radio debido a la competencia, pudiendo llegar a una gran audiencia.",image:"images/onair.jpg",bg:"linear-gradient(120deg,#84fab0,#8fd3f4)"},
+
+{year:1950,title:"Publicidad en Television",text:"La TV se convierte en el medio principal de publicidad pudiendo mostrar los productos de forma visual y emotiva",image:"images/hqdefault.jpg",bg:"linear-gradient(120deg,#a1c4fd,#c2e9fb)"},
+
+{year:1960,title:"Marketing 3.0: Valores",text:"Las empresas empiezan a estudiar las necesidades del consumidor y adaptar sus productos a ellas",image:"images/valores.jpg",bg:"linear-gradient(120deg,#ffecd2,#fcb69f)"},
+
+{year:1980,title:"Marketing de marca",text:"Las empresas comienzan a invertir fuertemente en crear identidad de marca para diferenciarse de la competencia.",image:"images/branding.jpg",bg:"linear-gradient(120deg,#ff9a9e,#fad0c4)"},
+
+{year:1995,title:"Marketing 4.0: Digital",text:"Internet introduce sitios web, banners y email marketing.",image:"images/digital.jpg",bg:"linear-gradient(120deg,#89f7fe,#66a6ff)"},
+
+{year:2000,title:"Marketing en buscadores",text:"Con el crecimiento de Google, las empresas comienzan a usar SEO y anuncios en buscadores",image:"images/buscadores.jpg",bg:"linear-gradient(120deg,#fbc2eb,#a6c1ee)"},
+
+{year:2010,title:"Redes Sociales",text:"Facebook, YouTube y Twitter se combierten en canales de publicidad.",image:"images/mrd.jpg",bg:"linear-gradient(120deg,#43e97b,#38f9d7)"},
+
+{year:2020,title:"Marketing de datos",text:"Las empresas utilizan análisis de datos para personalizar anuncios y experiencias para cada cliente.",image:"images/datos.jpg",bg:"linear-gradient(120deg,#fa709a,#fee140)"},
+
+{year:2024,title:"Marketing 5.0: con IA",text:"La inteligencia artificial permite crear contenido, analizar clientes y automatizar campañas de marketing.",image:"images/ia.jpg",bg:"linear-gradient(120deg,#a18cd1,#fbc2eb)"}
+]
+let index=0
+
+function revealContent(){
+const header=document.getElementById("header")
+const img=document.getElementById("imgContainer")
+const text=document.getElementById("textContainer")
+
+header.style.opacity=0
+img.style.opacity=0
+text.style.opacity=0
+
+header.classList.remove("reveal-title")
+img.classList.remove("reveal-img")
+text.classList.remove("reveal-text")
+
+void header.offsetWidth
+
+header.classList.add("reveal-title")
+img.classList.add("reveal-img")
+text.classList.add("reveal-text")
+}
+
+function update(){
+
+const data=timeline[index]
+
+document.getElementById("currentYear").textContent=data.year
+
+document.getElementById("prevYear").textContent=index>0?timeline[index-1].year:""
+
+document.getElementById("nextYear").textContent=index<timeline.length-1?timeline[index+1].year:""
+
+
+document.getElementById("title").textContent=data.title
+
+document.getElementById("text").textContent=data.text
+
+const img=document.getElementById("mainImage")
+img.src=data.image
+
+revealContent()
+
+document.querySelector(".timeline-section").style.background=data.bg
+
+}
+
+function nextYear(){
+if(index<timeline.length-1){
+index++
+update()
+}
+}
+
+function prevYear(){
+if(index>0){
+index--
+update()
+}
+}
+
+update()
+
+</script>
+
+</body>
+</html>
